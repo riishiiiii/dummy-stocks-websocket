@@ -41,8 +41,8 @@ A real-time stock price monitoring application built with FastAPI and WebSockets
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/riishiiiii/dummy-stocks-websocket
+cd dummy-stocks-websocket
 ```
 
 2. Create a virtual environment and activate it:
@@ -53,7 +53,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 3. Install dependencies:
 ```bash
-pip install fastapi uvicorn websockets
+pip install -r requirements.txt
 ```
 
 4. Start the backend server:
