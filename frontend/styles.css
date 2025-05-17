@@ -1,0 +1,261 @@
+:root {
+    --primary-color: #2962ff;
+    --success-color: #00c853;
+    --danger-color: #ff1744;
+    --background-color: #1a1a1a;
+    --card-background: #2d2d2d;
+    --text-color: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-radius: 4px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sidebar-width: 280px;
+    --header-height: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--card-background);
+    border-right: 1px solid #3d3d3d;
+    padding: 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #3d3d3d;
+    background-color: #252525;
+}
+
+.sidebar-header h2 {
+    color: var(--text-color);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.stock-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.stock-list-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #3d3d3d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.stock-list-item:hover {
+    background-color: #363636;
+}
+
+.stock-list-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.stock-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stock-symbol {
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.stock-name {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.stock-list-item.active .stock-name {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.stock-price-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.stock-price-info .price {
+    font-weight: 500;
+}
+
+.stock-price-info .change {
+    font-size: 0.9em;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.stock-price-info .change.positive {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.stock-price-info .change.negative {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+header {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: var(--text-color);
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stock-info-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.current-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.price-label {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.price-value {
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+.price-change {
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+}
+
+.price-change.positive {
+    color: var(--success-color);
+}
+
+.price-change.negative {
+    color: var(--danger-color);
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.graph-container {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    height: calc(100vh - 140px);
+    position: relative;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 240px;
+    }
+    
+    .main-content {
+        margin-left: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #3d3d3d;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stock-info-header {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .graph-container {
+        height: 400px;
+    }
+} 
